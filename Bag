@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.Scanner;
+public class Bag {
+    public static void main(String[] args) {
+        Novice nv = new Novice();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("level : "+nv.level);
+        System.out.println("HP : "+nv.hp+"/"+nv.hp_max);
+        System.out.println("EXP : "+nv.exp);
+        System.out.println("Please choose (1)Eat (2)Walk (3)Jump (4)Status (5)Stop");
+        int n=0;
+        while(n!=5)
+        {
+            System.out.print("Enter number: ");
+            n=scan.nextInt();
+            if(n==1){
+                nv.Eat();
+            }
+            else if(n==2){
+                nv.Walk();
+            }
+            else if(n==3){
+                nv.Jump();
+            }
+            else if(n==4){
+                nv.PrintStatus(nv.level,nv.hp,nv.exp);
+            }   
+        }
+        System.out.println("End Game");
+    }
+}
