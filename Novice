@@ -1,0 +1,48 @@
+import java.io.*;
+public class Novice {
+    public double hp = 50;
+    public double hp_max = 50;
+    public int exp = 0;
+    public int level = 1;
+    public static void main(String[] args) {
+       
+    }
+    public void HP_UP(double hp){
+        if(this.hp<GameFP.hp_max){
+            this.hp = this.hp+hp;
+        }
+    }
+    public void HP_DOWN(double hp){
+        this.hp = this.hp-hp;
+    }
+    public void Level_Up(){
+        this.level = this.level+1;
+        this.exp = 0;
+    }
+
+    public void EXP(int exp){
+            this.exp = this.exp+exp;
+            if(this.exp>=10){
+                Level_Up();
+            }
+    }
+
+    public void Walk(){
+        EXP(2);
+        HP_DOWN(1);
+    }
+
+    public void Jump(){
+        EXP(4);
+        HP_DOWN(2);
+    }
+    public void Eat(){
+        HP_UP(0.5);
+    }
+    public void PrintStatus(int level,double hp,int exp){
+        System.out.println("level : "+level);
+        System.out.println("HP : "+hp+"/"+hp_max);
+        System.out.println("EXP : "+exp);
+    }
+    
+}
